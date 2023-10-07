@@ -36,6 +36,27 @@ main{
   position: relative;
 }
 
+main::-webkit-scrollbar
+{
+	width: 10px;
+}
+
+main::-webkit-scrollbar-track {
+  background-color: #fff;
+  border: 1px solid #d9d9d9;
+}
+
+main::-webkit-scrollbar-thumb {
+  background: #DADCE0;
+  border-radius: 8px;
+  border: 3px solid white;
+}
+
+/* Handle on hover */
+main::-webkit-scrollbar-thumb:hover {
+  background: #969697; /* Set the color of the scrollbar handle on hover */
+}
+
  /* below lies grid layout css */
 
 #tableHead{
@@ -52,7 +73,7 @@ main{
   vertical-align: middle;
   text-align: center;
   box-sizing: border-box;
-  width: var(--cellWidth);
+  width: 100px;
   padding: 5px 0;
   background-color: var(--Primary_clr);
   border: 1px solid var(--Secondary_clr);

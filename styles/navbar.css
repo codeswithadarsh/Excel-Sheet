@@ -70,11 +70,16 @@
     font-size: 15px;
     font-weight: 500px;
     align-items: center;
-    background-color: #C2E7FF;
+    background-color: #99cbed;
     color: black;
     border: none;
     border-radius: 10px;
     cursor: pointer;
+    transition: box-shadow 0.3s ease;
+}
+
+.share-btn:hover{
+    box-shadow: 0px 5px 5px #888888;
 }
 
 /* -----------NavBar End------------- */

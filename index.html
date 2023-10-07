@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="./styles/menuOptions.css">
     <link rel="stylesheet" href="./styles/footer.css">
     <link rel="stylesheet" href="./styles/style.css">
+    <link rel="stylesheet" href="./styles/exportandimport.css">
     <title>Google Sheets</title>
 </head>
 <body>
@@ -38,11 +39,12 @@
       </div>
       
         <div class="container-icon">
-            <i class="fa-solid fa-cloud-arrow-up fa-fade"></i>
+            <i class="fa-solid fa-circle fa-fade" style="color: #25b649;"></i>
+            <!-- <i class="fa-solid fa-cloud-arrow-up fa-fade"></i> -->
           <i class="fa-regular fa-clock"></i>
           <i class="fa-solid fa-cloud-arrow-up"></i>
           <i class="fa-solid fa-bookmark"></i>
-          <button class="share-btn">Share</button>
+          <button class="share-btn" onclick="sharePage()">Share</button>
         </div>
       
 
@@ -51,24 +53,24 @@
 
     <div class="mysection">
         <section id="menuOptionsTray">
-            <div class="material-icons" id="cutBtn" onclick="handleCut()">content_cut</div>
-            <div class="material-icons" id="copyBtn" onclick="handleCopy()">content_copy</div>
-            <div class="material-icons" id="pasteBtn" onclick="handlePaste()">content_paste</div>
+            <div class="material-icons" id="cutBtn" onclick="handleCut()" title="Cut">content_cut</div>
+            <div class="material-icons" id="copyBtn" onclick="handleCopy()" title="Copy">content_copy</div>
+            <div class="material-icons" id="pasteBtn" onclick="handlePaste()" title="Paste">content_paste</div>
 
         
 
             <!-- select font family Options will be added dynamically -->
-            <div><select name="font_family_select" id="fontFamilySelect" onchange="ChangeFontFamilyOnSelect(this)"></select></div>
+            <div><select name="font_family_select" id="fontFamilySelect" title="Select Font" onchange="ChangeFontFamilyOnSelect(this)"></select></div>
             <!-- select font size Options will be added dynamically -->
-            <div><select name="font_size_select" id="fontSizeSelect" onchange="ChangeFontSizeOnSelect(this)"></select></div>
+            <div><select name="font_size_select" id="fontSizeSelect" title="Select Font Size" onchange="ChangeFontSizeOnSelect(this)"></select></div>
             
 
-            <div class="material-icons" id="boldBtn" onclick="handleBold()">format_bold</div>
-            <div class="material-icons" id="italicBtn" onclick="handleItalic()">format_italic</div>
-            <div class="material-icons" id="underlineBtn" onclick="handleUnderline()">format_underlined</div>
-            <div class="material-icons textAlignBtns" data-value="start" onclick="handleTextAlign(this)">format_align_left</div>
-            <div class="material-icons textAlignBtns" data-value="center" onclick="handleTextAlign(this)">format_align_center</div>
-            <div class="material-icons textAlignBtns" data-value="end" onclick="handleTextAlign(this)">format_align_right</div>
+            <div class="material-icons" id="boldBtn" onclick="handleBold()" title="Bold">format_bold</div>
+            <div class="material-icons" id="italicBtn" onclick="handleItalic()" title="Italic">format_italic</div>
+            <div class="material-icons" id="underlineBtn" onclick="handleUnderline()" title="Underline">format_underlined</div>
+            <div class="material-icons textAlignBtns" data-value="start" onclick="handleTextAlign(this)" title="Left">format_align_left</div>
+            <div class="material-icons textAlignBtns" data-value="center" onclick="handleTextAlign(this)" title="Center">format_align_center</div>
+            <div class="material-icons textAlignBtns" data-value="end" onclick="handleTextAlign(this)" title="Right">format_align_right</div>
 
 
             <div>
@@ -80,10 +82,25 @@
                 <label for="bgcolor-picker"><span class="material-icons">format_color_fill</span></label>
                 <input type="color" id="bgcolor-picker" onchange="HandleBackgroundColor(this)" style="width: 0; height: 0;">
             </div>
-            <div class="material-icons">cloud_download</div>
-            <div class="material-icons">cloud_upload</div>
+
+             <!------------------------------- File Export ---------------------------------------- -->
+
+            <div class="material-icons" onclick="exportSheet()" title="Download File">cloud_download</div>
+
+             <div><i class="fa-solid fa-print" onclick="printPage()" title="Print Page"></i></div>
+
+             <!------------------------------- File Export ---------------------------------------- -->
+
             <div class="vertical-line"></div>
-            <div><i class="fa-solid fa-link"></i></div>
+
+            <!------------------------------- File IMPORT ---------------------------------------- -->
+
+            <input type="file" id="fileInput" class="my-import" accept=".csv">
+            <div onclick="importSheet()" title="Import File" class="material-icons">cloud_upload</div>
+
+             <!------------------------------- File IMPORT ---------------------------------------- -->
+
+            <div><i class="fa-solid fa-link" onclick="copyLink()" title="Copy Link"></i></div>
             <div><i class="fa-solid fa-comment-dots"></i></div>
             <div><i class="fa-brands fa-creative-commons"></i></div>
             <div><i class="fa-solid fa-chart-line"></i></div>
@@ -127,5 +144,6 @@
     <script src="./scripts/manipulateCellProperties"></script>
     <script src="./scripts/footer.js"></script>
     <script src="./scripts/title.js"></script>
+    <script src="./scripts/exportandimport.js"></script>
 </body>
 </html>

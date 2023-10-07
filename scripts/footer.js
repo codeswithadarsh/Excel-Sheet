@@ -37,3 +37,4 @@ function highlightSheet(sheet) {
     // Add 'highlighted' class to the clicked sheet
     sheet.classList.add('highlighted');
 }
+

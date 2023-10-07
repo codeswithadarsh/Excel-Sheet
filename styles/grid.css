@@ -2,7 +2,7 @@
 /* cells */
 .tableRow>div{
     flex-shrink: 0;
-    width: var(--cellWidth);
+    min-width: 100px;
     height: var(--cellHeight);
     box-sizing: border-box;
     padding: 5px 0;
