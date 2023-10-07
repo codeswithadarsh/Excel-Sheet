@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" type="image/x-icon" href="./assets/logo.ico">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" >
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link rel="stylesheet" href="./styles/navbar.css">
+    <link rel="stylesheet" href="./styles/header.css">
+    <link rel="stylesheet" href="./styles/grid.css">
+    <link rel="stylesheet" href="./styles/menuOptions.css">
+    <link rel="stylesheet" href="./styles/footer.css">
+    <link rel="stylesheet" href="./styles/style.css">
+    <title>Google Sheets</title>
+</head>
+<body>
+
+    <!-------------NavBar Start-------------->
+
+    <nav class="container">
+      
+        <img src="./assets/logo.ico" id="logo"/>
+
+        <div class="container-title">
+            <h1 contenteditable="true" id="spreadsheetTitle">Untitled spreadsheet</h1>
+        <ul class="my-list">
+          <li>File</li>
+          <li>Edit</li>
+          <li>View</li>
+          <li>Format</li>
+          <li>Data</li>
+          <li>Tools</li>
+          <li>Extensions</li>
+        </ul>
+      </div>
+      
+        <div class="container-icon">
+            <i class="fa-solid fa-cloud-arrow-up fa-fade"></i>
+          <i class="fa-regular fa-clock"></i>
+          <i class="fa-solid fa-cloud-arrow-up"></i>
+          <i class="fa-solid fa-bookmark"></i>
+          <button class="share-btn">Share</button>
+        </div>
+      
+
+    </nav>
+<!-- -----------NavBar End-------------->
+
+    <div class="mysection">
+        <section id="menuOptionsTray">
+            <div class="material-icons" id="cutBtn" onclick="handleCut()">content_cut</div>
+            <div class="material-icons" id="copyBtn" onclick="handleCopy()">content_copy</div>
+            <div class="material-icons" id="pasteBtn" onclick="handlePaste()">content_paste</div>
+
+        
+
+            <!-- select font family Options will be added dynamically -->
+            <div><select name="font_family_select" id="fontFamilySelect" onchange="ChangeFontFamilyOnSelect(this)"></select></div>
+            <!-- select font size Options will be added dynamically -->
+            <div><select name="font_size_select" id="fontSizeSelect" onchange="ChangeFontSizeOnSelect(this)"></select></div>
+            
+
+            <div class="material-icons" id="boldBtn" onclick="handleBold()">format_bold</div>
+            <div class="material-icons" id="italicBtn" onclick="handleItalic()">format_italic</div>
+            <div class="material-icons" id="underlineBtn" onclick="handleUnderline()">format_underlined</div>
+            <div class="material-icons textAlignBtns" data-value="start" onclick="handleTextAlign(this)">format_align_left</div>
+            <div class="material-icons textAlignBtns" data-value="center" onclick="handleTextAlign(this)">format_align_center</div>
+            <div class="material-icons textAlignBtns" data-value="end" onclick="handleTextAlign(this)">format_align_right</div>
+
+
+            <div>
+                <label for="color-picker"><span class="material-icons">format_color_text</span></label>
+                <input type="color" id="color-picker" onchange="handleTextColor(this)" style="width: 0; height: 0;">
+            </div>
+
+            <div>
+                <label for="bgcolor-picker"><span class="material-icons">format_color_fill</span></label>
+                <input type="color" id="bgcolor-picker" onchange="HandleBackgroundColor(this)" style="width: 0; height: 0;">
+            </div>
+            <div class="material-icons">cloud_download</div>
+            <div class="material-icons">cloud_upload</div>
+            <div class="vertical-line"></div>
+            <div><i class="fa-solid fa-link"></i></div>
+            <div><i class="fa-solid fa-comment-dots"></i></div>
+            <div><i class="fa-brands fa-creative-commons"></i></div>
+            <div><i class="fa-solid fa-chart-line"></i></div>
+            <div><i class="fa-solid fa-file-invoice"></i></div>
+            <div><i class="fa-solid fa-filter"></i></div>
+            <div><i class="fa-solid fa-calculator"></i></div>
+            <div><i class="fa-solid fa-magnifying-glass-location"></i></div>
+            <div><i class="fa-solid fa-inbox"></i></div>
+    
+        </section>
+    </div>
+
+        <section id="formulaActionTray">
+            <div id="activeCellDisplay">Cell</div>
+            <div class="vertical-line"></div>
+            <div><img src="./assets/function_FILL0_wght400_GRAD0_opsz40.svg" alt="Function"></div>
+            <input type="text" id="formulaInput">
+        </section>
+   
+
+    <main>
+        <section id="tableHead">
+            <!-- hard coding the starting block -->
+            <b>S.no</b>
+        </section>
+        <section id="tableBody"></section>
+    </main>
+
+    <footer>
+        <div id="addSheetsBtn" onclick="addSheet()">
+            <img src="./assets/post_add_FILL0_wght400_GRAD0_opsz24.svg" alt="Add Sheets">
+        </div>
+        <div id="sheetsContainer" class="sheet-container">
+            <!-- Sheets will be dynamically added here -->
+        </div>
+    </footer>
+    
+    <script src="./scripts/script.js"></script>
+    <script src="./scripts/activeCell.js"></script>
+    <script src="./scripts/selectOpt.js"></script>
+    <script src="./scripts/manipulateCellProperties"></script>
+    <script src="./scripts/footer.js"></script>
+    <script src="./scripts/title.js"></script>
+</body>
+</html>
